@@ -1,4 +1,4 @@
-package com.example.effectingsoftwaretesting.chapter1
+package chapter1
 
 import java.util.*
 
@@ -25,6 +25,7 @@ class PlanningPoker {
             }
         }
 
+        // data class는 이미 equals 구현되어있기 때문에 == 해 주어도 상관 없음.
         if (lowestEstimate?.equals(highestEstimate) == true) {
             return Collections.emptyList()
         }

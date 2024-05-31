@@ -1,4 +1,4 @@
-package com.example.effectingsoftwaretesting.chapter1
+package chapter1
 
 data class Estimate(
     val developer: String,

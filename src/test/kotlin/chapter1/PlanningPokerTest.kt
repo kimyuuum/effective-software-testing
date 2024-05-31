@@ -1,4 +1,4 @@
-package com.example.effectingsoftwaretesting.chapter1
+package chapter1
 
 import net.jqwik.api.*
 import org.assertj.core.api.Assertions.assertThat
