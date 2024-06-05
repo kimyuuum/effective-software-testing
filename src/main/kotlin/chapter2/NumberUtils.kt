@@ -5,8 +5,8 @@ import kotlin.math.max
 
 class NumberUtils {
     fun add(
-        left: MutableList<Int>,
-        right: MutableList<Int>,
+        left: MutableList<Int>?,
+        right: MutableList<Int>?,
     ): List<Int>? {
         if (left == null || right == null) {
             return null

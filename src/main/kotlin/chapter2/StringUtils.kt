@@ -8,7 +8,7 @@ class StringUtils {
         open: String?,
         close: String?,
     ): Array<String>? {
-        if (str == null || StringUtils.hasText(open) == false || StringUtils.hasText(close) == false) {
+        if (str == null || !StringUtils.hasText(open) || !StringUtils.hasText(close)) {
             return null
         }
 
