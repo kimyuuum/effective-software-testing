@@ -5,7 +5,7 @@ import chapter7.ports.ShoppingCartRepository
 
 class ShoppingCartHibernateDao : ShoppingCartRepository {
     override fun cartsPaidToday(): List<ShoppingCart> {
-        TODO("Not yet implemented")
+        return emptyList()
     }
 
     override fun persist(cart: ShoppingCart) {

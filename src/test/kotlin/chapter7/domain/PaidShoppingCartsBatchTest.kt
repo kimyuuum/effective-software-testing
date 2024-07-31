@@ -69,8 +69,7 @@ class PaidShoppingCartsBatchTest {
         val someCart = spy<ShoppingCart>()
         /* Without spy
             val someCart = ShoppingCart(0.0) // 생성자 없이 어떻게 처리?
-            -> 기본 value를 추가해줘서 해결했는데, 그럼 아무 데이터 없이 선언하면 바로 그 기본값이 들어가기 때문인가?
-            assertThat 자동으로 import 안되는 이슈..
+            -> 기본 value를 추가해줘서 해결했는데, 그럼 아무 데이터 없이 선언하면 바로 그 기본값이 들어가기 때문
             val someDate = Calendar.getInstance()
          */
         val someDate = LocalDate.now()

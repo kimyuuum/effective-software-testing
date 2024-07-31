@@ -14,4 +14,8 @@ data class ShoppingCart(
     fun isReadyForDelivery(): Boolean {
         return readyForDelivery
     }
+
+    fun numberOfItems(): Int {
+        return 0
+    }
 }
