@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
 class RomanNumberConverterTest {
-    // object로 해서 써봤는데 괜찮은지?
+    // 이미 object 면 static에 올라와 있으니까 RomanNumeralConverter.function() 호출해서 써도 됨
     private val roman = RomanNumeralConverter
 
     @Test

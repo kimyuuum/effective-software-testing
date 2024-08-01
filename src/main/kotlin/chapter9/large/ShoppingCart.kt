@@ -1,16 +1,15 @@
 package chapter9.large
 
-import java.util.Collections.unmodifiableList
-
 class ShoppingCart {
-    private val items: MutableList<Item> = ArrayList()
+    private val items: MutableList<Item> = mutableListOf()
 
     fun add(item: Item) {
         items.add(item)
     }
 
     fun getItems(): List<Item> {
-        return unmodifiableList(items)
+//        return unmodifiableList(items)
+        return items.toList()
     }
 
     fun numberOfItems(): Int {
