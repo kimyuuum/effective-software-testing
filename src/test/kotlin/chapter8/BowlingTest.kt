@@ -110,7 +110,7 @@ class BowlingTest {
                 "[1 2]",
             )
 
-        assertThrows<AssertionError> {
+        assertThrows<IllegalStateException> {
             Bowling.validateGame(spareGames)
         }
     }

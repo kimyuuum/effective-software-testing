@@ -10,7 +10,7 @@ object Bowling {
         var bonusScore = 0
 
         for (game in games) {
-            val values = validateFrame(game)
+            val values = splitFrame(game)
             var frameScore = 0
 
             for (value in values) {
@@ -65,14 +65,14 @@ object Bowling {
 
         if (lastFrame[0] == "x") {
             val bonusFrame = games[10].substring(1 until games[10].length - 1).split(" ")
-            assert(bonusFrame.size < 3) { "Strike bonus round size must be 2 or 1" }
+            check(bonusFrame.size < 3) { "Strike bonus round size must be 2 or 1" }
         } else if (lastFrame[1] == "/") {
             val bonusFrame = games[10].substring(1 until games[10].length - 1).split(" ")
-            assert(bonusFrame.size == 1) { "Spare bonus round size must be 1" }
+            check(bonusFrame.size == 1) { "Spare bonus round size must be 1" }
         }
     }
 
-    fun validateFrame(frame: String): List<String> {
+    private fun splitFrame(frame: String): List<String> {
         return frame.substring(1 until frame.length - 1).split(" ")
     }
 }
