@@ -45,6 +45,7 @@ object Bowling {
                             bonusScore += score
                             isSpare -= 1
                         }
+
                         frameScore += score
                     }
                 }

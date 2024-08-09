@@ -3,6 +3,7 @@ package chapter8
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 
 class BowlingTest {
@@ -89,7 +90,10 @@ class BowlingTest {
                 "[1 2]",
             )
 
-        Bowling.validateGame(strikeGames)
+        // 예외를 던지지 않을 때를 테스트 한다
+        assertDoesNotThrow {
+            Bowling.validateGame(strikeGames)
+        }
     }
 
     @Test
