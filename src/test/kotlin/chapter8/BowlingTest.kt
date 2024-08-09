@@ -5,28 +5,68 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
+import kotlin.random.Random
 
 class BowlingTest {
+    private fun randomFrame(): String {
+        val firstFin = Random.nextInt(0, 9)
+        val secondFin = Random.nextInt(0, 9 - firstFin)
+
+        // strike
+        val strike = "[x]"
+        // spare
+        val spare = "[$firstFin /]"
+        // plain
+        val plain = "[$firstFin $secondFin]"
+
+        return listOf(strike, spare, plain).random()
+    }
+
+    private fun getGames(): List<String> {
+        val games = (1..10).map { randomFrame() }
+
+        val lastFrame = games.last()
+
+        return if (lastFrame.any { it == 'x' || it == '/' }) {
+            games + randomFrame() // TODO additional frame 에서 strike 두번인 경우는?
+        } else {
+            games
+        }
+    }
+
     @Test
     @DisplayName("모든 프레임이 스트라이크인 경우")
     fun calculateAllStrike() {
         val games =
             listOf(
-                "[x]", // 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
-                "[x]", // 10 + 10
+                "[x]", // 1 frame: 10 + 10
+                "[x]", // 2 frame: 10 + 10
+                "[x]", // 3 frame: 10 + 10
+                "[x]", // 4 frame: 10 + 10
+                "[x]", // 5 frame: 10 + 10
+                "[x]", // 6 frame: 10 + 10
+                "[x]", // 7 frame: 10 + 10
+                "[x]", // 8 frame: 10 + 10
+                "[x]", // 9 frame: 10 + (10 + 10 + 10)
+                "[x x x]", // 10 frame: (10 + 10 + 10)
             )
 
-        val score = Bowling.calculate(games)
-        assertThat(score).isEqualTo(210)
+        val games2 =
+            listOf(
+                "[x]", // 1 frame: 10
+                "[x]", // 2 frame: 10 + 10
+                "[x]", // 3 frame: 10 + 10
+                "[x]", // 4 frame: 10 + 10
+                "[x]", // 5 frame: 10 + 10
+                "[x]", // 6 frame: 10 + 10
+                "[x]", // 7 frame: 10 + 10
+                "[x]", // 8 frame: 10 + 10
+                "[x]", // 9 frame: 10 + 10
+                "[x]", // 10 frame: 10 + 10
+                "[x x]", // 11 frame : (10 + 10) + (20 + 10)
+            )
+        val score = Bowling.calculate(games2)
+        assertThat(score).isEqualTo(230)
     }
 
     @Test
@@ -200,4 +240,7 @@ class BowlingTest {
 열 개 프레임에 대한 경기 결과를 받아서 최종 점수를 반환하는 프로그램을 작성하자.
 TDD 주기를 사용하자.
 테스트를 작성하고, 통과시키고, 반복하자.
+
+X
+X X
  */
